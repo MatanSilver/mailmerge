@@ -1,8 +1,8 @@
 # Mailmerge
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mailmerge`. To experiment with that code, run `bin/console` for an interactive prompt.
+Mailmerge is a simple program that takes a list of template arguments in the form of a CSV file and populates an email template (in erb format) with those parameters.
 
-TODO: Delete this and the text above, and describe your gem
+You can use it to send a simple or formulaic email to multiple people and maintain some amount of personalization per person
 
 ## Installation
 
@@ -22,7 +22,31 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Example usage:
+
+`mailmerge test.csv test.erb x@gmail.com password`
+
+Example email template:
+
+```
+FROM: x@gmail.com
+SUBJECT: <%= foo %>
+TO: <%= @to_email %>
+
+<%= bar %>
+<%= baz %>
+
+Regards,
+Person
+```
+
+Example CSV:
+
+```
+to_email,foo,bar,baz
+y@gmail.com,1,2,3
+z@yahoo.com,4,5,6
+```
 
 ## Development
 
@@ -32,7 +56,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/mailmerge.
+Bug reports and pull requests are welcome on GitHub at https://github.com/MatanSilver/mailmerge.
 
 ## License
 

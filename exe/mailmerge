@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
 require "mailmerge"
+m = Mailmerge::Merger.new
+m.merge
